@@ -1,0 +1,17 @@
+{
+  "name": "furniture-go",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Furniture GO Sprint 01 technical foundation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node scripts/build-check.js",
+    "test": "node scripts/sprint02-tests.js"
+  },
+  "keywords": [],
+  "author": "Furniture GO",
+  "license": "UNLICENSED",
+  "type": "commonjs"
+}
