@@ -1,0 +1,16 @@
+[
+  {
+    "id": "MAT-0001",
+    "officialName": "Sample Test Board A",
+    "specification": "Sample Board 4x8",
+    "thickness": "18mm",
+    "dataClassification": "sample/test"
+  },
+  {
+    "id": "MAT-0002",
+    "officialName": "Sample Test Board B",
+    "specification": "Sample Board 4x8",
+    "thickness": "9mm",
+    "dataClassification": "sample/test"
+  }
+]

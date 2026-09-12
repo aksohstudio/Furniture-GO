@@ -1,0 +1,18 @@
+[
+  {
+    "id": "HW-0001",
+    "officialName": "Sample Test Door Hinge",
+    "category": "Door Hinge",
+    "specification": "Sample Hinge Specification",
+    "unit": "pcs",
+    "dataClassification": "sample/test"
+  },
+  {
+    "id": "HW-0002",
+    "officialName": "Sample Test Drawer Slide",
+    "category": "Drawer Slide",
+    "specification": "Sample Slide Specification",
+    "unit": "pair",
+    "dataClassification": "sample/test"
+  }
+]

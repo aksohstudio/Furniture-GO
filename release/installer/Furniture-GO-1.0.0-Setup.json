@@ -1,0 +1,10 @@
+﻿{
+    "artifact":  "Furniture-GO-1.0.0-Setup.exe",
+    "nodeSigner":  "CN=OpenJS Foundation, O=OpenJS Foundation, L=San Francisco, S=California, C=US",
+    "version":  "1.0.0",
+    "product":  "Furniture GO",
+    "nodeSource":  "C:\\Program Files\\nodejs\\node.exe",
+    "sizeBytes":  29808426,
+    "nodeVersion":  "v24.18.0",
+    "sha256":  "2D8C405596DC30DE1F8FBE3B3DF5CA575610F02DBF07F4C75EF8CAD771C9E5E3"
+}

@@ -1,18 +1,140 @@
-const routes = Object.freeze({
-  '/': { name: 'Projects' }, '/projects': { name: 'Projects' }, '/dashboard': { name: 'Project Dashboard' }, '/settings': { name: 'Project Settings' }, '/database': { name: 'Database' }, '/account': { name: 'Account' },
-});
+function normalizePath(pathname) {
+  if (!pathname) {
+    return '/';
+  }
+
+  let value = String(pathname);
+
+  if (!value.startsWith('/')) {
+    value = `/${value}`;
+  }
+
+  if (value.length > 1) {
+    value = value.replace(/\/+$/, '');
+  }
+
+  return value || '/';
+}
+
+function parseLocation() {
+  const hash =
+    window.location.hash || '';
+
+  if (hash.startsWith('#/')) {
+    return hash.slice(1);
+  }
+
+  if (hash === '#') {
+    return '/';
+  }
+
+  return window.location.pathname || '/';
+}
 
 export function createRouter() {
+  let currentPath =
+    normalizePath(
+      parseLocation()
+    );
+
+  const listeners = new Set();
+
+  const notify = () => {
+    currentPath =
+      normalizePath(
+        parseLocation()
+      );
+
+    listeners.forEach(
+      (listener) => listener(currentPath)
+    );
+  };
+
+  window.addEventListener(
+    'hashchange',
+    notify
+  );
+
+  window.addEventListener(
+    'popstate',
+    notify
+  );
+
   return {
     current() {
-      const route = window.location.hash.slice(1) || '/';
-      return route.startsWith('/dashboard/') ? '/dashboard' : (routes[route] ? route.split('?')[0] : '/projects');
+      return currentPath;
     },
-    resolve() {
-      return routes[this.current()];
+
+    navigate(pathname) {
+      const target =
+        normalizePath(pathname);
+
+      if (
+        window.location.hash ===
+        `#${target}`
+      ) {
+        notify();
+        return;
+      }
+
+      window.location.hash =
+        target;
+
+      currentPath =
+        target;
     },
-    navigate(route) {
-      window.location.hash = route;
+
+    replace(pathname) {
+      const target =
+        normalizePath(pathname);
+
+      const url =
+        `${window.location.pathname}` +
+        `${window.location.search}` +
+        `#${target}`;
+
+      window.history.replaceState(
+        {},
+        '',
+        url
+      );
+
+      currentPath =
+        target;
+
+      notify();
+    },
+
+    subscribe(listener) {
+      if (
+        typeof listener !==
+        'function'
+      ) {
+        return () => {};
+      }
+
+      listeners.add(listener);
+
+      return () => {
+        listeners.delete(listener);
+      };
+    },
+
+    destroy() {
+      window.removeEventListener(
+        'hashchange',
+        notify
+      );
+
+      window.removeEventListener(
+        'popstate',
+        notify
+      );
+
+      listeners.clear();
     },
   };
 }
+
+export const router =
+  createRouter();

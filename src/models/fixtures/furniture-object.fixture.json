@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "objectId": "fixture-object-id",
+  "projectId": "fixture-project-id",
+  "name": "Fixture Base Cabinet",
+  "objectType": "Base Cabinet",
+  "lifecycleStatus": "Created",
+  "productionStatus": "Object Generated",
+  "createdAt": "2026-01-01T00:00:00.000Z",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "engineeringRecordId": "fixture-engineering-record-id",
+  "designerCabinetId": null,
+  "factoryReferenceId": null,
+  "dimensions": {
+    "width": null,
+    "height": null,
+    "depth": null,
+    "thickness": null,
+    "unit": null
+  },
+  "materialReferences": [],
+  "hardwareReferences": [],
+  "relationshipReferences": [],
+  "cadReferences": [],
+  "formulaReferences": [],
+  "engineeringRuleReferences": [],
+  "validation": { "isValid": false, "errors": [] },
+  "floorId": null,
+  "roomId": null,
+  "deletedAt": null
+}
