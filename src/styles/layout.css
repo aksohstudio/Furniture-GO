@@ -1692,6 +1692,9 @@ button {
 
 .project-workspace-page .home-overview-actions {
   flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
 }
 
 /* ---------------------------------------------------------
@@ -2089,6 +2092,10 @@ button {
   }
 
   .project-workspace-page .home-overview-actions {
+    width: 100%;
+  }
+
+  .project-workspace-page .home-import-pdf-button {
     width: 100%;
   }
 

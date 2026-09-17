@@ -339,6 +339,14 @@ function renderProjectHeader(project) {
       <div class="home-overview-actions">
 
         <button
+          class="button primary home-import-pdf-button"
+          type="button"
+          data-import-pdf
+        >
+          Import Designer PDF
+        </button>
+
+        <button
           class="button"
           type="button"
           data-settings
@@ -764,6 +772,14 @@ export async function ProjectDashboard({ projectId, router }) {
     .addEventListener('click', () => {
       router.navigate(
         `/settings?project=${encodeURIComponent(projectId)}`
+      );
+    });
+
+  section
+    .querySelector('[data-import-pdf]')
+    .addEventListener('click', () => {
+      router.navigate(
+        `/designer-pdf-import/${encodeURIComponent(projectId)}`
       );
     });
 
